@@ -24,9 +24,6 @@
 ;; USER NAME
 (setq user-full-name "am9obgo" user-mail-address "-")
 
-;; THEME
-(setq doom-theme 'doom-one-light)
-
 ;; LINE NUMBERS
 (setq display-line-numbers-type nil)
 
@@ -109,6 +106,18 @@
 ;; OS SPECIFIC SETTINGS
 ;;*************************************************************************************;;
 
+;; THEME
+(if (string= system-type "darwin")
+    (if (string= "true"
+                 (shell-command-to-string
+                  (concat "printf %s \"$(osascript -e "
+                          "\'tell application \"System Events\" to "
+                          "tell appearance preferences to return dark mode\')\"")))
+        (setq doom-theme 'doom-one)
+      (setq doom-theme 'doom-one-light))
+  setq doom-theme 'doom-one)
+
+;; VISUAL BEHAVIOR
 (cond
  ((string-equal system-type "darwin")
   (when (not window-system)
@@ -162,7 +171,7 @@
       "M-J" 'sp-join-sexp
       "C-<tab>" 'sp-indent-defun)
 
-(map! :map ivy-mode-map
+(map! :map ivy-minibuffer-map
       "TAB" 'ivy-partial)
 
 ;;**************************************************************************************;;

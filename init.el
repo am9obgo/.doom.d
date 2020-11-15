@@ -50,17 +50,17 @@
        ;;zen               ; distraction-free coding or writing
 
        :editor
-       (fold)                 ; (nigh) universal code folding
-       (snippets)             ; my elves. They type so I don't have to
-       (file-templates)       ; auto-snippets for empty files
-       ;;(format +onsave)   ; automated prettiness
-       ;;god                ; run Emacs commands without modifier keys
-       ;;lispy              ; vim for lisp, for people who don't like vim
-       ;;multiple-cursors   ; editing in many places at once
-       ;;objed              ; text object editing for the innocent
-       ;;parinfer           ; turn lisp into python, sort of
-       ;;rotate-text        ; cycle region at point between text candidates
-       ;;word-wrap          ; soft wrapping with language-aware indent
+       (file-templates)    ; auto-snippets for empty files
+       (fold)              ; (nigh) universal code folding
+       ;;(format +onsave)  ; automated prettiness
+       ;;(snippets)        ; my elves. They type so I don't have to
+       ;;god               ; run Emacs commands without modifier keys
+       ;;lispy             ; vim for lisp, for people who don't like vim
+       ;;multiple-cursors  ; editing in many places at once
+       ;;objed             ; text object editing for the innocent
+       ;;parinfer          ; turn lisp into python, sort of
+       ;;rotate-text       ; cycle region at point between text candidates
+       ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
        (dired)             ; making dired pretty [functional]
