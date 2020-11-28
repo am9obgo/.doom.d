@@ -115,7 +115,7 @@
                           "tell appearance preferences to return dark mode\')\"")))
         (setq doom-theme 'doom-one)
       (setq doom-theme 'doom-one-light))
-  setq doom-theme 'doom-one)
+  (setq doom-theme 'doom-one))
 
 ;; VISUAL BEHAVIOR
 (cond

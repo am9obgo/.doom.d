@@ -108,18 +108,20 @@
 
        :lang
        (cc +lsp)           ; C/C++/Obj-C madness
-       (dart +lsp +flutter); paint ui and not much else
-       (emacs-lisp +highlight-quoted)
-       (hy)                ; readability of scheme w/ speed of python
+       (data)              ; config/data formats
+       (emacs-lisp +lsp)
        (javascript +lsp)   ; all(hope(abandon(ye(who(enter(here))))))
        (json)              ; At least it ain't XML
        (markdown)          ; writing docs for people to ignore
        (org)               ; organize your plain life in plain text
        (python +lsp)       ; beautiful is better than ugly
        (sh)                ; she sells {ba,z,fi}sh shells on the C xor
+       (web +lsp)          ; the tubes
        (yaml)              ; JSON, but readable
+       ;;(dart +flutter)   ; paint ui and not much else
        ;;(go +lsp)         ; the hipster dialect
        ;;(haskell +dante)  ; a language that's lazier than I am
+       ;;(hy)              ; readability of scheme w/ speed of python
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;agda              ; types of types of types of types...
@@ -128,7 +130,6 @@
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
-       ;;data              ; config/data formats
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        ;;erlang            ; an elegant language for a more civilized age
@@ -163,7 +164,6 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
 
        :email
        ;;(mu4e +gmail)
