@@ -102,12 +102,34 @@
       (process-send-eof proc)))
   (setq last-paste-to-osx text))
 
+
+;;*************************************************************************************;;
+;; MODES CUSTOMIZATION
+;;*************************************************************************************;;
+
+;; CC MODE
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
+            (setq c-basic-offset 4)
+            (c-set-offset 'access-label '--)
+            (c-set-offset 'arglist-intro '++)
+            (c-set-offset 'class-open '-)
+            (c-set-offset 'innamespace 0)
+            (c-set-offset 'substatement-open 0)
+            (c-set-offset 'topmost-intro '-)))
+
 ;;*************************************************************************************;;
 ;; OS SPECIFIC SETTINGS
 ;;*************************************************************************************;;
 
 ;; THEME
-(if (string= system-type "darwin")
+(cond
+ ; Linux
+ ((string= system-type "gnu/linux")
+  (setq doom-theme 'tsdh-light))
+ ; macOS
+ ((string= system-type "darwin")
     (if (string= "true"
                  (shell-command-to-string
                   (concat "printf %s \"$(osascript -e "
@@ -115,11 +137,11 @@
                           "tell appearance preferences to return dark mode\')\"")))
         (setq doom-theme 'doom-one)
       (setq doom-theme 'doom-one-light))
-  (setq doom-theme 'doom-one))
+  (setq doom-theme 'doom-one-ligth)))
 
 ;; VISUAL BEHAVIOR
 (cond
- ((string-equal system-type "darwin")
+ ((string= system-type "darwin")
   (when (not window-system)
     (setq interprogram-cut-function 'paste-to-osx)
     (setq interprogram-paste-function 'copy-from-osx))
