@@ -18,7 +18,7 @@
 ;; they are implemented.
 
 ;;**************************************************************************************;;
-;; DOOM & BUILT-IN MODES SETTINGS
+;; GENERAL SETTINGS
 ;;**************************************************************************************;;
 
 ;; USER NAME
@@ -26,6 +26,9 @@
 
 ;; LINE NUMBERS
 (setq display-line-numbers-type nil)
+
+;; FRAME TITLE
+(setq frame-title-format "%f")
 
 ;; ORG HOME
 (setq org-directory "~/.org/")
@@ -39,11 +42,64 @@
 ;; INDENT TABS
 (setq-default indent-tabs-mode nil)
 
+;;**************************************************************************************;;
+;; BUILT-IN MODES
+;;**************************************************************************************;;
+
+;;
+;; UNIQUIFY
+;; Overrides Emacs’ default mechanism for making buffer names unique
+;;
+;; https://www.emacswiki.org/emacs/uniquify
+;;
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "|")
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")
+
+;;
+;; WINNER-MODE
+;;
+;; Allows to “undo” (and “redo”) changes in the window configuration with the key
+;; commands ‘C-c left’ and ‘C-c right’.
+;; https://www.emacswiki.org/emacs/WinnerMode
+;;
+
+(require 'winner)
+(winner-mode t)
+
 ;; PAREN MODE
+;; TODO: doc
 (show-paren-mode t)
 
-;; WINNER-MODE
-(winner-mode t)
+;; IBUFFER
+;; TODO: doc
+(setq ibuffer-formats
+      '((mark modified read-only locked " "
+              (icon 2 2 :left :elide)
+              #(" " 0 1
+                (display
+                 (space :align-to 8)))
+              (name 32 32 :left :elide)
+              " " filename-and-process)
+        (mark " "
+              (name 16 -1)
+              " " filename)))
+
+;; CC-MODE
+;; TODO: doc
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
+            (setq c-basic-offset 4)
+            (c-set-offset 'access-label '--)
+            (c-set-offset 'arglist-intro '++)
+            (c-set-offset 'class-open '-)
+            (c-set-offset 'innamespace 0)
+            (c-set-offset 'substatement-open 0)
+            (c-set-offset 'topmost-intro '-)))
 
 ;;**************************************************************************************;;
 ;; CUSTOM ROUTINES
@@ -102,23 +158,6 @@
       (process-send-eof proc)))
   (setq last-paste-to-osx text))
 
-
-;;*************************************************************************************;;
-;; MODES CUSTOMIZATION
-;;*************************************************************************************;;
-
-;; CC MODE
-(add-hook 'c-mode-common-hook
-          (lambda()
-            (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
-            (setq c-basic-offset 4)
-            (c-set-offset 'access-label '--)
-            (c-set-offset 'arglist-intro '++)
-            (c-set-offset 'class-open '-)
-            (c-set-offset 'innamespace 0)
-            (c-set-offset 'substatement-open 0)
-            (c-set-offset 'topmost-intro '-)))
-
 ;;*************************************************************************************;;
 ;; OS SPECIFIC SETTINGS
 ;;*************************************************************************************;;
@@ -145,7 +184,7 @@
   (when (not window-system)
     (setq interprogram-cut-function 'paste-to-osx)
     (setq interprogram-paste-function 'copy-from-osx))
-  (setq doom-font "SF Mono-13")
+  (setq doom-font "SF Mono-12")
   (setq explicit-bash-args '("--noediting" "--login"))
   (add-to-list 'default-frame-alist (cons 'width 140))
   (add-to-list 'default-frame-alist (cons 'height 60))))
