@@ -164,10 +164,10 @@
 
 ;; THEME
 (cond
- ; Linux
+ ;; Linux
  ((string= system-type "gnu/linux")
   (setq doom-theme 'tsdh-light))
- ; macOS
+ ;; macOS
  ((string= system-type "darwin")
     (if (string= "true"
                  (shell-command-to-string
@@ -175,8 +175,9 @@
                           "\'tell application \"System Events\" to "
                           "tell appearance preferences to return dark mode\')\"")))
         (setq doom-theme 'doom-one)
-      (setq doom-theme 'doom-one-light))
-  (setq doom-theme 'doom-one-ligth)))
+      (setq doom-theme 'doom-one-light)))
+ ;; Windows ;)
+ (setq doom-theme 'doom-one-ligth))
 
 ;; VISUAL BEHAVIOR
 (cond
@@ -198,9 +199,8 @@
       "ESC <left>" 'windmove-left
       "ESC <right>" 'windmove-right)
 
-;; TODO: Change M- keys to allow M-digit work
 (map! "M-*" 'select-text-in-quote
-      "M-8" 'extend-selection)
+      "M-#" 'extend-selection)
 
 (map! "s-1" 'neotree-show
       "s-0" 'neotree-hide)

@@ -77,18 +77,18 @@
 
        :checkers
        (syntax)            ; tasing you for every semicolon you forget
-       (spell)             ; tasing you for misspelling mispelling
+       (spell +everywhere) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        (eval +overlay)     ; run code, run (also, repls)
        (debugger +lsp)     ; stepping through code, to help you add bugs
+       (docker +lsp)       ; manipulate Docker images, containers & more
        (lookup)            ; navigate your code and its documentation
-       (lsp)
+       (lsp)               ; Client for Language Server Protocol
        (magit)             ; a git porcelain for Emacs
        ;;ansible
        ;;direnv
-       ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        ;;gist              ; interacting with github gists
@@ -109,15 +109,15 @@
        :lang
        (cc +lsp)           ; C/C++/Obj-C madness
        (data)              ; config/data formats
-       (emacs-lisp +lsp)
+       (emacs-lisp +lsp)   ; extended support for Emacs Lisp
        (javascript +lsp)   ; all(hope(abandon(ye(who(enter(here))))))
-       (json)              ; At least it ain't XML
+       (json +lsp)         ; At least it ain't XML
        (markdown)          ; writing docs for people to ignore
        (org)               ; organize your plain life in plain text
        (python +lsp)       ; beautiful is better than ugly
        (sh)                ; she sells {ba,z,fi}sh shells on the C xor
        (web +lsp)          ; the tubes
-       (yaml)              ; JSON, but readable
+       (yaml +lsp)         ; JSON, but readable
        ;;(dart +flutter)   ; paint ui and not much else
        ;;(go +lsp)         ; the hipster dialect
        ;;(haskell +dante)  ; a language that's lazier than I am
