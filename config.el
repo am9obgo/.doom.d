@@ -101,6 +101,10 @@
             (c-set-offset 'substatement-open 0)
             (c-set-offset 'topmost-intro '-)))
 
+;; IVY
+;; TODO: doc
+(setq ivy-extra-directories nil)
+
 ;;**************************************************************************************;;
 ;; CUSTOM ROUTINES
 ;;**************************************************************************************;;
@@ -202,11 +206,7 @@
 (map! "M-*" 'select-text-in-quote
       "M-#" 'extend-selection)
 
-(map! "s-1" 'neotree-show
-      "s-0" 'neotree-hide)
-
-(map! :map prog-mode-map
-      "C-s" '+default/search-buffer)
+(map!  "C-s" 'swiper-isearch)
 
 (map! :map smartparens-mode-map
       "C-M-a" 'sp-beginning-of-sexp
@@ -233,8 +233,4 @@
       "C-<tab>" 'sp-indent-defun)
 
 (map! :map ivy-minibuffer-map
-      "TAB" 'ivy-partial)
-
-;;**************************************************************************************;;
-;; LOCAL SETTINGS
-;;**************************************************************************************;;
+      "TAB" 'ivy-partial-or-done)
