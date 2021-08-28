@@ -70,12 +70,22 @@
 (require 'winner)
 (winner-mode t)
 
+;;
 ;; PAREN MODE
-;; TODO: doc
+;;
+;; Allows one to see matching pairs of parentheses and other characters.
+;; https://www.emacswiki.org/emacs/ShowParenMode
+;;
+
 (show-paren-mode t)
 
+;;
 ;; IBUFFER
-;; TODO: doc
+;;
+;; Advanced replacement for BufferMenu, which lets you operate on buffers much in the same
+;; manner as Dired.
+;; https://www.emacswiki.org/emacs/IbufferMode
+;;
 (setq ibuffer-formats
       '((mark modified read-only locked " "
               (icon 2 2 :left :elide)
@@ -88,8 +98,13 @@
               (name 16 -1)
               " " filename)))
 
+;;
 ;; CC-MODE
-;; TODO: doc
+;;
+;; CC Mode is a GNU Emacs mode for editing files containing C, C++, Objective-C, Java,
+;; CORBA IDL (and the variants PSDL and CIDL), Pike and AWK code.
+;; https://www.gnu.org/software/emacs/manual/html_mono/ccmode.html
+;;
 (add-hook 'c-mode-common-hook
           (lambda()
             (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
@@ -101,9 +116,26 @@
             (c-set-offset 'substatement-open 0)
             (c-set-offset 'topmost-intro '-)))
 
+;;
 ;; IVY
-;; TODO: doc
+;;
+;; Ivy is an interactive interface for completion in Emacs. Emacs uses completion
+;; mechanism in a variety of contexts: code, menus, commands, variables, functions, etc.
+;; https://github.com/abo-abo/swiper
+;;
+
 (setq ivy-extra-directories nil)
+
+;;
+;; PROJECTILE
+;;
+;; Projectile is a project interaction library for Emacs. It provides a nice set of
+;; features operating on a project level without introducing external dependencies.
+;; https://github.com/bbatsov/projectile
+;;
+
+(after! projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml"))
 
 ;;**************************************************************************************;;
 ;; CUSTOM ROUTINES

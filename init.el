@@ -118,7 +118,7 @@
        (sh)                ; she sells {ba,z,fi}sh shells on the C xor
        (web +lsp)          ; the tubes
        (yaml +lsp)         ; JSON, but readable
-       ;;(dart +flutter)   ; paint ui and not much else
+       (dart +flutter +lsp); paint ui and not much else
        ;;(go +lsp)         ; the hipster dialect
        ;;(haskell +dante)  ; a language that's lazier than I am
        ;;(hy)              ; readability of scheme w/ speed of python
@@ -126,7 +126,7 @@
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;agda              ; types of types of types of types...
        ;;clojure           ; java with a lisp
-       ;;common-lisp       ; if you've seen one lisp, you've seen them all
+       (common-lisp)       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
