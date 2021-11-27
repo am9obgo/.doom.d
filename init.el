@@ -28,16 +28,16 @@
        (doom-dashboard)    ; a nifty splash screen for Emacs
        (fill-column)       ; a `fill-column' indicator
        (hl-todo)           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       (ligatures)         ; ligatures and symbols to make your code pretty again
+       ;;(ligatures)         ; ligatures and symbols to make your code pretty again
        (minimap)           ; show a map of the code on the side
        (modeline)          ; snazzy, Atom-inspired modeline, plus API
-       (neotree)           ; a project drawer, like NERDTree for vim
+       ;;(neotree)           ; a project drawer, like NERDTree for vim
        (ophints)           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
        (vc-gutter)         ; vcs diff in the fringe
        (vi-tilde-fringe)   ; fringe tildes to mark beyond EOB
        (window-select)     ; visually switch windows
-       (workspaces)        ; tab emulation, persistence & separate workspaces
+       ;;(workspaces)        ; tab emulation, persistence & separate workspaces
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;indent-guides     ; highlighted indent columns
        ;;(emoji +unicode)  ; 🙂
@@ -45,7 +45,7 @@
        ;;hydra
        ;;nav-flash         ; blink cursor line after big motions
        ;;tabs              ; a tab bar for Emacs
-       ;;treemacs          ; a project drawer, like neotree but cooler
+       (treemacs +lsp +treemacs-git-mode)     ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        ;;zen               ; distraction-free coding or writing
 
@@ -53,7 +53,7 @@
        (file-templates)    ; auto-snippets for empty files
        (fold)              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
-       ;;(snippets)        ; my elves. They type so I don't have to
+       (snippets)        ; my elves. They type so I don't have to
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
@@ -73,7 +73,7 @@
        ;;eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
-       ;;vterm             ; the best terminal emulation in Emacs
+       vterm             ; the best terminal emulation in Emacs
 
        :checkers
        (syntax)            ; tasing you for every semicolon you forget
@@ -113,12 +113,12 @@
        (javascript +lsp)   ; all(hope(abandon(ye(who(enter(here))))))
        (json +lsp)         ; At least it ain't XML
        (markdown)          ; writing docs for people to ignore
-       (org)               ; organize your plain life in plain text
+       ;;(org)               ; organize your plain life in plain text
        (python +lsp)       ; beautiful is better than ugly
        (sh)                ; she sells {ba,z,fi}sh shells on the C xor
        (web +lsp)          ; the tubes
        (yaml +lsp)         ; JSON, but readable
-       (dart +flutter +lsp); paint ui and not much else
+       ;;(dart +flutter +lsp); paint ui and not much else
        ;;(go +lsp)         ; the hipster dialect
        ;;(haskell +dante)  ; a language that's lazier than I am
        ;;(hy)              ; readability of scheme w/ speed of python

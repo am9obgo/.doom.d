@@ -30,9 +30,6 @@
 ;; FRAME TITLE
 (setq frame-title-format "%f")
 
-;; ORG HOME
-(setq org-directory "~/.org/")
-
 ;; COLUMN WIDTH
 (setq-default fill-column 90)
 
@@ -86,6 +83,7 @@
 ;; manner as Dired.
 ;; https://www.emacswiki.org/emacs/IbufferMode
 ;;
+
 (setq ibuffer-formats
       '((mark modified read-only locked " "
               (icon 2 2 :left :elide)
@@ -105,6 +103,7 @@
 ;; CORBA IDL (and the variants PSDL and CIDL), Pike and AWK code.
 ;; https://www.gnu.org/software/emacs/manual/html_mono/ccmode.html
 ;;
+
 (add-hook 'c-mode-common-hook
           (lambda()
             (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
@@ -136,6 +135,13 @@
 
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml"))
+
+;;
+;; CMAKE MODE
+;;
+;;
+
+(add-to-list 'auto-mode-alist '("CMakeLists\\.var\\'" . cmake-mode))
 
 ;;**************************************************************************************;;
 ;; CUSTOM ROUTINES
