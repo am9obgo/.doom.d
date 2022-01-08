@@ -208,7 +208,7 @@
 (cond
  ;; Linux
  ((string= system-type "gnu/linux")
-  (setq doom-theme 'tsdh-light))
+  (setq doom-theme 'doom-monokai-spectrum))
  ;; macOS
  ((string= system-type "darwin")
     (if (string= "true"
@@ -236,15 +236,23 @@
 ;; KEYBOARD BINDINGS
 ;;*************************************************************************************;;
 
+(map! "M-*" 'select-text-in-quote
+      "M-#" 'extend-selection
+      "C-s" 'swiper-isearch)
+
 (map! "ESC <up>" 'windmove-up
       "ESC <down>" 'windmove-down
       "ESC <left>" 'windmove-left
       "ESC <right>" 'windmove-right)
 
-(map! "M-*" 'select-text-in-quote
-      "M-#" 'extend-selection)
-
-(map!  "C-s" 'swiper-isearch)
+(map! :map dap-mode-map
+      "<f5>" 'dap-debug
+      "C-<f5>" 'dap-continue
+      "S-<f5>" 'dap-delete-all-sessions
+      "<f9>" 'dap-breakpoint-toggle
+      "<f10>" 'dap-next
+      "S-<f11>" 'dap-step-out
+      "<f11>" 'dap-step-in)
 
 (map! :map smartparens-mode-map
       "C-M-a" 'sp-beginning-of-sexp
