@@ -52,8 +52,8 @@
        :editor
        (file-templates)    ; auto-snippets for empty files
        (fold)              ; (nigh) universal code folding
-       ;;(format +onsave)  ; automated prettiness
-       (snippets)        ; my elves. They type so I don't have to
+       (format +onsave)    ; automated prettiness
+       (snippets)          ; my elves. They type so I don't have to
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
@@ -77,7 +77,7 @@
 
        :checkers
        (syntax)            ; tasing you for every semicolon you forget
-       (spell +everywhere) ; tasing you for misspelling mispelling
+       (spell +hunspell +everywhere) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools

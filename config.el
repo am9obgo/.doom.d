@@ -39,6 +39,9 @@
 ;; INDENT TABS
 (setq-default indent-tabs-mode nil)
 
+;; SCROLL UP/DOWN
+(setq scroll-error-top-bottom t)
+
 ;;**************************************************************************************;;
 ;; BUILT-IN MODES
 ;;**************************************************************************************;;
@@ -106,14 +109,15 @@
 
 (add-hook 'c-mode-common-hook
           (lambda()
-            (setq compile-command "cd ${PWD/%src*/.build} && cmake .. && cmake --build .")
-            (setq c-basic-offset 4)
-            (c-set-offset 'access-label '--)
-            (c-set-offset 'arglist-intro '++)
-            (c-set-offset 'class-open '-)
-            (c-set-offset 'innamespace 0)
-            (c-set-offset 'substatement-open 0)
-            (c-set-offset 'topmost-intro '-)))
+            (fset 'c-indent-region 'clang-format-region)
+            ;; (setq c-basic-offset 4)
+            ;; (c-set-offset 'access-label '--)
+            ;; (c-set-offset 'arglist-intro '++)
+            ;; (c-set-offset 'class-open '-)
+            ;; (c-set-offset 'innamespace 0)
+            ;; (c-set-offset 'substatement-open 0)
+            ;; (c-set-offset 'topmost-intro '-)
+            ))
 
 ;;
 ;; IVY
