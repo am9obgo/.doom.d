@@ -26,7 +26,7 @@
        :ui
        (doom)              ; what makes DOOM look the way it does
        (doom-dashboard)    ; a nifty splash screen for Emacs
-       (fill-column)       ; a `fill-column' indicator
+       ;;(fill-column)       ; a `fill-column' indicator
        (hl-todo)           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;(ligatures)         ; ligatures and symbols to make your code pretty again
        (minimap)           ; show a map of the code on the side
@@ -77,7 +77,7 @@
 
        :checkers
        (syntax)            ; tasing you for every semicolon you forget
-       (spell +hunspell +everywhere) ; tasing you for misspelling mispelling
+       ;;(spell +aspell)     ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -114,7 +114,7 @@
        (json +lsp)         ; At least it ain't XML
        (markdown)          ; writing docs for people to ignore
        ;;(org)               ; organize your plain life in plain text
-       (python +lsp)       ; beautiful is better than ugly
+       (python +lsp +pyenv)  ; beautiful is better than ugly
        (sh)                ; she sells {ba,z,fi}sh shells on the C xor
        (web +lsp)          ; the tubes
        (yaml +lsp)         ; JSON, but readable
@@ -157,7 +157,7 @@
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (rust +lsp)         ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;scheme            ; a fully conniving family of lisps
        ;;sml

@@ -141,6 +141,19 @@
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml"))
 
 ;;
+;; DAP
+;;
+;; Emacs client/library for Debug Adapter Protocol is a wire protocol for communication
+;; between client and Debug Server. It's similar to the LSP but provides integration with
+;; debug server.
+;;
+
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy)
+  (setq dap-auto-configure-mode t)
+  (require 'dap-cpptools))
+
+;;
 ;; CMAKE MODE
 ;;
 ;;
